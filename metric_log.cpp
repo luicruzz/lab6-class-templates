@@ -73,6 +73,20 @@ public:
 // It receives a generic target by const reference.
 // Return true when an equal stored value exists; otherwise return false.
 
+template <typename T>
+bool MetricLog<T>::contains(const T& target) const
+    {
+        for (int index = 0; index < count; index++)
+        {
+         if (values[index] == target)
+         {
+            return true;
+         }
+     }
+
+        return false;
+    }
+
 int main()
 {
     MetricLog<int> waitlistCounts;
