@@ -13,13 +13,14 @@ using namespace std;
  * MetricLog ADT
  *
  * Data:
- * [Complete in Part E: describe the values managed by this log.]
+ * A collection of metric values stored in the log.
  *
  * Operations:
- * [Complete in Part E: describe add(value).]
- * [Complete in Part E: describe get(index) and its precondition.]
- * [Complete in Part E: describe contains(target).]
- * [Complete in Part E: describe size() and isEmpty().]
+ * add(value): Adds a value if there is space available.
+ * get(index): Returns the value at a valid index.
+ * contains(target): Returns true if the target value exists.
+ * size(): Returns the number of stored values.
+ * isEmpty(): Returns true if the log has no stored values.
  */
 
 template <typename T>
@@ -106,6 +107,22 @@ int main()
     // TODO (Part E): Add two dummy duration values to that log.
     // TODO (Part E): Use contains with one value that exists and one that does not exist.
     // TODO (Part E): Print descriptive English labels for all results.
+
+MetricLog<double> sessionDurations;
+
+    sessionDurations.add(42.5);
+    sessionDurations.add(55.0);
+
+    cout << "First session duration: "
+         << sessionDurations.get(0) << endl;
+
+    cout << boolalpha;
+
+    cout << "Duration exists: "
+         << sessionDurations.contains(42.5) << endl;
+
+    cout << "Other duration exists: "
+         << sessionDurations.contains(30.0) << endl;
 
     return 0;
 }
